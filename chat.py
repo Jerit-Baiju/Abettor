@@ -4,6 +4,10 @@ import pytz
 import pyjokes
 from head import *
 
+def joke(num):
+    for x in range(num):
+        out(pyjokes.get_joke())
+
 def run(main):
     
     split = main.split()
@@ -15,7 +19,7 @@ def run(main):
     elif compare(['hi', 'hey', 'hello', 'hai'], 'abettor', split) == True:
         out(['hai sir'])
 
-    elif check_all(["how", "are", "you"], split) == True:
+    elif check_all(["how", "are", "you"], split) == True or check_all(['how','r','u'], split):
         if str(inp("i am good, what about you?")) in [
             "good",
             "fine",
@@ -59,7 +63,7 @@ def run(main):
         "who created you",
         "who developed you",
     ]:
-        out(f"Jerit gave me Wisdom and knowldge")
+        out(f"Jerit gave me Wisdom and knowledge")
 
     elif main in ["do you believe in god", "who is your god"]:
         out("I don't believe in god since I'm made by jerit and I haven't seen God")
@@ -97,6 +101,7 @@ def run(main):
         "your favorite game",
         "favorite game",
         "your favorite game",
+        'fav game'
     ]:
         out("i don't play games")
 
@@ -244,8 +249,8 @@ def run(main):
 
     elif main in [
         "which is the best source of education",
-        "which is the best source of knowldege",
-        "which is the best source of knowldege",
+        "which is the best source of knowledge",
+        "which is the best source of knowledge",
     ]:
         out("Google")
 
@@ -417,10 +422,7 @@ def run(main):
 
     elif main in ["are you there", "r u there"]:
         out(["At your service, Sir", "Yes "])
-
-    elif main in ["joke", "comedy"] or check_all(["joke"], split) == True:
-        out(pyjokes.get_joke())
-
+        
     elif main in ["i like to travel", "i love"]:
         out("Me too")
 
@@ -430,7 +432,7 @@ def run(main):
     elif main in ["help", "help me"]:
         out("how can i help you ?")
 
-    elif main in ["favourite number", "fav num", "fav number"]:
+    elif main in ["favorite number", "fav num", "fav number"]:
         out("24")
 
     elif main in ["24"]:
