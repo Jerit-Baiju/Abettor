@@ -26,9 +26,11 @@ def run():
             try:
                 num = int(word)
                 chat.joke(num)
+                break
             except:
                  if length == len(split):
                      chat.joke(1)
+                     break
 
     elif check_all(['push','url'], split) == True:
         url = main.replace('push url ', '')
