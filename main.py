@@ -28,11 +28,11 @@ def run():
                 chat.joke(num)
                 break
             except:
-                 if length == len(split):
-                     chat.joke(1)
-                     break
+                if length == len(split):
+                    chat.joke(1)
+                    break
 
-    elif check_all(['push','url'], split) == True:
+    elif check_all(['push', 'url'], split) == True:
         url = main.replace('push url ', '')
         push_url(url)
 
@@ -40,8 +40,7 @@ def run():
         content = main.replace('push ', '')
         push(content)
 
-    
-    elif check_all(['spam'], split) == True :
+    elif check_all(['spam'], split) == True:
         length = 0
         for word in split:
             length = length + 1
@@ -54,10 +53,6 @@ def run():
 
     else:
         chat.run(main)
-
-   
-
-    
 
 
 while True:
