@@ -25,7 +25,7 @@ def compare(list, main_word, split):
 def push(content):
     try:
         from pushbullet import Pushbullet
-        pb = Pushbullet('o.dWvpPTPP3dsH2vglR3y4YwZyE9AhvPeV')
+        pb = Pushbullet('id')
         pb.push_note('Abettor', content, pb.devices[0])
         out(f'push success ({content}) ')
     except:
