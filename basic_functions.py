@@ -34,7 +34,7 @@ def push(content):
 def push_url(url):
     try:
         from pushbullet import Pushbullet
-        pb = Pushbullet('o.dWvpPTPP3dsH2vglR3y4YwZyE9AhvPeV')
+        pb = Pushbullet('id')
         pb.push_link('Abettor', url, device=pb.devices[0])
         out(f'url pushed ({url}) ')
     except:
@@ -43,7 +43,7 @@ def push_url(url):
 def spam(num):
     try:
         from pushbullet import Pushbullet
-        pb = Pushbullet('o.dWvpPTPP3dsH2vglR3y4YwZyE9AhvPeV')
+        pb = Pushbullet('id')
         for times in range(num):
             pb.push_note('Abettor', 'SPAM', pb.devices[0])
         out('spam success')
