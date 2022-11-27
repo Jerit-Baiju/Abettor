@@ -4,14 +4,14 @@ import pytz
 import pyjokes
 from head import *
 
+
 def joke(num):
     for x in range(num):
         out(pyjokes.get_joke())
 
-def run(main):
-    
-    split = main.split()
 
+def run(main):
+    split = main.split()
 
     if main in ["hi", "hello", "hai", "hey"]:
         out([f"hello {user.name}", f"hi {user.name}", "hey there !"])
@@ -19,7 +19,7 @@ def run(main):
     elif compare(['hi', 'hey', 'hello', 'hai'], 'abettor', split) == True:
         out(['hai sir'])
 
-    elif check_all(["how", "are", "you"], split) == True or check_all(['how','r','u'], split):
+    elif check_all(["how", "are", "you"], split) == True or check_all(['how', 'r', 'u'], split):
         if str(inp("i am good, what about you?")) in [
             "good",
             "fine",
@@ -422,7 +422,7 @@ def run(main):
 
     elif main in ["are you there", "r u there"]:
         out(["At your service, Sir", "Yes "])
-        
+
     elif main in ["i like to travel", "i love"]:
         out("Me too")
 
