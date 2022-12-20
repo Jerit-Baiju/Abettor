@@ -1,5 +1,7 @@
 import random
 from word2number import w2n
+import requests
+
 
 def inp(text):
     return input(f"--> {str(text).upper()} > ")
@@ -24,8 +26,39 @@ def compare(list, main_word, split):
                 return True
 
 
-def check_any(any, intents):
-    return any + intents
+def check_any(words, intents):
+    for word in words:
+        if word in intents:
+            return True
+
+
+def english_words():
+    return requests.get('https://raw.githubusercontent.com/Jerit-Baiju/english-words/master/words.txt').text.split()
+
+
+def find_hidden_word(array):
+    arr = []
+    count = 3
+    op = []
+    dictionary = english_words()
+    for _ in range(len(array)):
+        initial = 0
+        final = initial + count
+        for _ in range(len(array)):
+            if final != len(array) + 1:
+                if array[initial:final] not in arr:
+                    arr.append(array[initial:final])
+                    initial += 1
+                    final += 1
+        count += 1
+    for x in arr:
+        word = ''
+        for i in x:
+            word = word + i
+        if word in dictionary:
+            op.append(x)
+    print(arr)
+    return op
 
 
 def push(content):
@@ -54,16 +87,3 @@ def word_to_num(intents):
         if word in w2n.american_number_system.keys():
             nums = f'{nums}{word} '
     return w2n.word_to_num(nums)
-
-def spam(num):
-    try:
-        from pushbullet import Pushbullet
-        pb = Pushbullet('id')
-        for _ in range(num):
-            pb.push_note('Abettor', 'SPAM', pb.devices[0])
-        out('spam success')
-    except:
-        out('no network')
-
-
-# print(word_to_num('hi forty three thousand'.split()))

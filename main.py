@@ -44,17 +44,6 @@ def run():
         content = main.replace('push ', '')
         push(content)
 
-    elif check_all(['spam'], intents) == True:
-        length = 0
-        for word in intents:
-            length = length + 1
-            try:
-                num = int(word)
-                spam(num)
-            except:
-                if len(intents) == length:
-                    out('no number found')
-
     else:
         chat.run(main)
 
