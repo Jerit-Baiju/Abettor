@@ -6,7 +6,7 @@ from head import *
 
 
 def joke(num):
-    for x in range(num):
+    for _ in range(num):
         out(pyjokes.get_joke())
 
 
