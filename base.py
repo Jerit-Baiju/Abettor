@@ -42,21 +42,24 @@ def english_words():
             
 
 
-def find_hidden_word(array):
+def find_hidden_word(array:list,min_length=4):
+    letters = []
+    for x in array:
+        if x != ' ':
+            letters.append(x)
     arr = []
-    count = 3
     op = []
     dictionary = english_words()
-    for _ in range(len(array)):
+    for _ in range(len(letters)):
         initial = 0
-        final = initial + count
-        for _ in range(len(array)):
-            if final != len(array) + 1:
-                if array[initial:final] not in arr:
-                    arr.append(array[initial:final])
+        final = initial + min_length
+        for _ in range(len(letters)):
+            if final != len(letters) + 1:
+                if letters[initial:final] not in arr:
+                    arr.append(letters[initial:final])
                     initial += 1
                     final += 1
-        count += 1
+        min_length += 1
     for x in arr:
         word = ''
         for i in x:
