@@ -66,4 +66,4 @@ def spam(num):
         out('no network')
 
 
-print(word_to_num('hi forty three thousand'.split()))
+# print(word_to_num('hi forty three thousand'.split()))

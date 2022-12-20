@@ -20,17 +20,21 @@ def run():
         out(scrapper.weather())
 
     elif check_all(['jokes'], intents) == True or check_all(['joke'], intents) == True or check_all(['comedy'], intents):
-        length = 0
-        for word in intents:
-            length = length + 1
-            try:
-                num = int(word)
-                chat.joke(num)
-                break
-            except:
-                if length == len(intents):
-                    chat.joke(1)
+        try:
+            num = word_to_num(intents)
+            chat.joke(num)
+        except:
+            length = 0
+            for word in intents:
+                length = length + 1
+                try:
+                    num = int(word)
+                    chat.joke(num)
                     break
+                except:
+                    if length == len(intents):
+                        chat.joke(1)
+                        break
 
     elif check_all(['push', 'url'], intents) == True:
         url = main.replace('push url ', '')
