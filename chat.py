@@ -1,4 +1,4 @@
-from basic_functions import *
+from base import *
 from datetime import datetime
 import pytz
 import pyjokes

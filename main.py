@@ -1,6 +1,6 @@
 import chat
 import scrapper
-from basic_functions import *
+from base import *
 
 out(["hi there!", "hai there!", "welcome sir", "Greetings from abettor"])
 
@@ -9,46 +9,46 @@ def run():
 
     main = input("--> ").replace("?", "").replace("_",
                                                   "").casefold().lstrip().rstrip()
-    split = main.split()
+    intents = main.split()
 
-    if check_all(['ajent', 'log'], split) == True:
+    if check_all(['ajent', 'log'], intents) == True:
         out('loading..')
         out(scrapper.ajent_submits())
 
-    elif check_all(['weather'], split) == True:
+    elif check_all(['weather'], intents):
         out('loading..')
         out(scrapper.weather())
 
-    elif check_all(['jokes'], split) == True or check_all(['joke'], split) == True or check_all(['comedy'], split):
+    elif check_all(['jokes'], intents) == True or check_all(['joke'], intents) == True or check_all(['comedy'], intents):
         length = 0
-        for word in split:
+        for word in intents:
             length = length + 1
             try:
                 num = int(word)
                 chat.joke(num)
                 break
             except:
-                if length == len(split):
+                if length == len(intents):
                     chat.joke(1)
                     break
 
-    elif check_all(['push', 'url'], split) == True:
+    elif check_all(['push', 'url'], intents) == True:
         url = main.replace('push url ', '')
         push_url(url)
 
-    elif check_all(['push'], split) == True:
+    elif check_all(['push'], intents) == True:
         content = main.replace('push ', '')
         push(content)
 
-    elif check_all(['spam'], split) == True:
+    elif check_all(['spam'], intents) == True:
         length = 0
-        for word in split:
+        for word in intents:
             length = length + 1
             try:
                 num = int(word)
                 spam(num)
             except:
-                if len(split) == length:
+                if len(intents) == length:
                     out('no number found')
 
     else:
