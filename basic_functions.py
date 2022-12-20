@@ -44,7 +44,7 @@ def spam(num):
     try:
         from pushbullet import Pushbullet
         pb = Pushbullet('id')
-        for times in range(num):
+        for x in range(num):
             pb.push_note('Abettor', 'SPAM', pb.devices[0])
         out('spam success')
     except:
