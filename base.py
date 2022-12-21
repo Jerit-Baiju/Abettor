@@ -3,6 +3,7 @@ from word2number import w2n
 import requests
 import numpy as np
 
+
 def inp(text):
     return input(f"--> {str(text).upper()} > ")
 
@@ -33,16 +34,17 @@ def check_any(words, intents):
 
 
 def english_words():
-    list_1 = np.array(requests.get('https://raw.githubusercontent.com/Jerit-Baiju/english-words/master/words.txt').text.split())
-    list_2 = np.array(requests.get('https://raw.githubusercontent.com/Jerit-Baiju/dictionary/master/popular.txt').text.split())
+    list_1 = np.array(requests.get(
+        'https://raw.githubusercontent.com/Jerit-Baiju/english-words/master/words.txt').text.split())
+    list_2 = np.array(requests.get(
+        'https://raw.githubusercontent.com/Jerit-Baiju/dictionary/master/popular.txt').text.split())
 
-    op = np.append(list_1,list_2)
+    op = np.append(list_1, list_2)
     # print(op)
-    return  op
-            
+    return op
 
 
-def find_hidden_word(array:list,min_length=4):
+def find_hidden_word(array: list, min_length=4):
     letters = []
     for x in array:
         if x != ' ':
